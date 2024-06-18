@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(bg18.jpeg);
+            background-repeat: no-repeat;
+            background-size: 1600px 800px;
+            object-fit: contain;
+            padding: 0px;
+            margin: 0px;
+
+
+        }
+
+        .a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            font-size: 20px;
+            padding: 20px 40px;
+            background-color: rgb(186, 251, 251);
+            border-radius: 100px;
+            border: none;
+            margin-left: 11%;
+        }
+
+        .button1 {
+            font-size: 20px;
+            padding: 20px 40px;
+            background-color: rgb(186, 251, 251);
+            border-radius: 100px;
+            border: none;
+            margin-left: -20px;
+        }
+
+        .button2 {
+            font-size: 20px;
+            padding: 20px 100px;
+            background-color: rgb(89, 239, 131);
+            border-radius: 100px;
+            margin-left: 100px;
+            border: none;
+        }
+
+        .mini {
+            padding: 10px 10px;
+            font-size: 15px;
+            background-color: rgb(204, 250, 250);
+            border: none;
+            margin-left: 2px;
+        }
+
+        .final {
+            font-size: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+    </style>
+
+    <script>
+        var h, m, p;
+        function starttest() {
+            h = 29;
+            m = 59;
+            p = setInterval(() => {
+                document.getElementById("x").innerHTML = "Timeleft - " + h + " : " + m;
+                m = m - 1;
+                if (m == -1) {
+                    h = h - 1;
+                    m = 59;
+                }
+                if (h == -1) {
+                    clearInterval(p);
+                    alert("time over");
+                    finish();
+                }
+            }, 1000);
+            document.getElementById("hiddenbox").style.visibility = "visible"
+            document.getElementById("stop").style.visibility = "visible"
+            document.getElementById("start").style.visibility = "hidden"
+            show(0);
+        }
+        function stoptest() {
+            var torf = confirm("are you sure you want to finish?");
+            if (torf == 1) {
+                finish()
+                document.getElementById("x").innerHTML = "Timeleft - " + h + " : " + m;
+                clearInterval(p);
+            }
+        }
+
+
+
+        var a = [`What will this program print? <br> main()  
+{  
+  int i = 2;  <br>
+  {  
+    int i = 4, j = 5;  <br>
+     printf("%d %d", i, j);  <br>
+  }    
+  printf("%d %d", i, j);  <br>
+}  `, "Which of the following comment is correct when a macro definition includes arguments?", "What is a lint?", `What is the output of this statement "printf("%d", (a++))"?`, `Study the following program: <br>main()  <br>
+{  
+  int a = 1, b = 2, c = 3:   <br>
+  printf("%d", a + = (a + = 3, 5, a))   <br>
+}  `, ` What does this declaration mean? <br> int x : 4;  `, "Why is a macro used in place of a function?", "In the C language, the constant is defined _______.", `How many times will the following loop execute? <br> for(j = 1; j <= 10; j = j-1)  `, `What is the result after execution of the following code if a is 10, b is 5, and c is 10? <br>If ((a > b) && (a <= c))  <br>
+        a = a + 1;  <br>
+else  <br>
+        c = c+1;  `];
+        var op1 = ["4525", "The opening parenthesis should immediately follow the macro name.", "C compiler", `The value of (a + 1)`, "6", "X is a four-digit integer.", "It reduces execution time.", "Before main", "Forever", "a = 10, c = 10"];
+        var op2 = ["2525 ", "There should be at least one blank between the macro name and the opening parenthesis.", "Interactive debugger", "The current value of a", "9", "X cannot be greater than a four-digit integer.", "It reduces code size.", "After main", "Never", "a = 11, c = 10"];
+        var op3 = ["4545", "There should be only one blank between the macro name and the opening parenthesis.", "Analyzing tool", "Error message", "12", "X is a four-bit integer.", "It increases execution time.", "Anywhere, but starting on a new line.", "0", "a = 10, c = 11"];
+        var op4 = ["None of the these", "All the above comments are correct.", "C interpreter", "Garbage", "8", "None of the these", "It increases code size.", "None of the these.", "1", "a = 11, c = 11"];
+        var ans = [1, 3, 3, 2, 4, 3, 4, 3, 1, 2];
+        var x;
+        var i;
+        var j;
+        var s = 0;
+        function show(i) {
+            j = i;
+            document.getElementById("aa").innerHTML = "Question=> " + a[i];
+            document.getElementById("bb").innerHTML = "<input type='radio' value=1 id='a' name='a'>" + op1[i];
+            document.getElementById("cc").innerHTML = "<input type='radio' value=2 id='b' name='a'>" + op2[i];
+            document.getElementById("dd").innerHTML = "<input type='radio' value=3 id='c' name='a'>" + op3[i];
+            document.getElementById("ee").innerHTML = "<input type='radio' value=4 id='d' name='a'>" + op4[i];
+        }
+
+
+        function next() {
+            if (j < 9) {
+                show(j + 1);
+            }
+            else {
+                // show(0);
+                alert("question over")
+            }
+        }
+        function pre() {
+            if (j >= 1) {
+                show(j - 1);
+            }
+            else {
+                show(0);
+            }
+        }
+        var c = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        function answer() {
+            var a;
+            if (document.getElementById("a").checked) {
+                a = document.getElementById("a").value;
+
+            }
+            else if (document.getElementById("b").checked) {
+                a = document.getElementById("b").value
+            }
+            else if (document.getElementById("c").checked) {
+                a = document.getElementById("c").value
+            }
+            else if (document.getElementById("d").checked) {
+                a = document.getElementById("d").value
+            }
+
+
+
+            if (a == ans[j]) {
+
+                c[j] = 1;
+
+            }
+            else {
+                c[j] = 0
+
+
+            }
+            next();
+        }
+
+        function finish() {
+            for (var index = 0; index < c.length; index++) {
+                s = s + c[index];
+
+            }
+
+            document.getElementById("f").innerHTML = "Final score=" + s + "/10"
+            document.getElementById("x").innerHTML = "Timeleft - " + h + " : " + m;
+            clearInterval(p);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="a">
+        <div>
+            <a href="l.html"><img src="home.webp" width="50px" height="50px" style="position: absolute; left: 20px;top: 0px;"></a>
+        </div>
+        <div id="start">
+            <input type="button" value="start test" onclick="starttest()"
+                style="padding: 12px 20px; background-color: bisque; border: none; border-radius: 30px;font-size: 17px;">
+        </div>
+        <div id="stop" style="margin-left: -90px; visibility: hidden;">
+            <input type="button" value="stop test" onclick="stoptest()"
+                style="padding: 12px 20px; background-color: bisque; border: none; border-radius: 30px;font-size: 17px;">
+        </div>
+        <div style="margin-left: 100px; font-size: 20px;"> Exam duration 30 min</div>
+        <div style="margin-left: 100px;font-size: 20px;">
+            <div id="x"></div>
+        </div>
+    </div>
+
+    <div id="hiddenbox" style="visibility: hidden;">
+        <div>
+            <div style="display: flex;font-size: 20px;flex-direction: column; margin-top: 20px;">
+                <div id="aa" style="background-color: beige; font-size: 30px;"></div>
+                <div id="bb" style="background-color:transparent; display: inline; margin-top: 20px;"></div> <br>
+                <div id="cc" style="background-color:transparent; display: inline;"></div> <br>
+                <div id="dd" style="background-color:transparent; display: inline;"></div> <br>
+                <div id="ee" style="background-color:transparent; display: inline;"></div> <br>
+            </div>
+
+
+
+            <div style="display: flex; margin-top: 50px;">
+                <div>
+
+                    <input type="button" value="previous" id="pre" onclick="pre()" class="button">
+                </div>
+                <div style="width: 10px;height: 35px; display: flex;margin-left: 30px;margin-top: 18px;">
+                    <input type=button value="1" onclick="show(0)" class="mini" />
+                    <input type=button value="2" onclick="show(1)" class="mini" />
+                    <input type=button value="3" onclick="show(2)" class="mini" />
+                    <input type=button value="4" onclick="show(3)" class="mini" />
+                    <input type=button value="5" onclick="show(4)" class="mini" />
+                    <input type=button value="6" onclick="show(5)" class="mini" />
+                    <input type=button value="7" onclick="show(6)" class="mini" />
+                    <input type=button value="8" onclick="show(7)" class="mini" />
+                    <input type=button value="9" onclick="show(8)" class="mini" />
+                    <input type=button value="10" onclick="show(9)" class="mini" />
+                </div>
+                <div style="margin-left: 330px;">
+
+                    <input type="button" value="next" id="next" onclick="next()" class="button1">
+                </div>
+                <div>
+
+                    <input type="button" value="submit" id="next" onclick="answer()" class="button">
+                </div>
+                <div>
+
+                    <input type="button" value="finish" id="finish" onclick="finish()" class="button2">
+                </div>
+            </div>
+
+
+            <div>
+                <p id="f" class="final"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

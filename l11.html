@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+         background-image: url(bg18.jpeg); 
+            background-repeat: no-repeat;
+            background-size: 1600px 800px;
+            object-fit: contain;
+            padding: 0px;
+            margin: 0px;
+            
+    
+        }
+
+        .a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            font-size: 20px;
+            padding: 20px 40px;
+            background-color: rgb(186, 251, 251);
+            border-radius: 100px;
+            border: none;
+            margin-left: 11%;
+        }
+
+        .button1 {
+            font-size: 20px;
+            padding: 20px 40px;
+            background-color: rgb(186, 251, 251);
+            border-radius: 100px;
+            border: none;
+            margin-left: -20px;
+        }
+
+        .button2 {
+            font-size: 20px;
+            padding: 20px 100px;
+            background-color: rgb(89, 239, 131);
+            border-radius: 100px;
+            margin-left: 100px;
+            border: none;
+        }
+
+        .mini {
+            padding: 10px 10px;
+            font-size: 15px;
+            background-color: rgb(204, 250, 250);
+            border: none;
+            margin-left: 2px;
+        }
+
+        .final {
+            font-size: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+    </style>
+
+    <script>
+        var h, m, p;
+        function starttest() {
+            h = 29;
+            m = 59;
+            p = setInterval(() => {
+                document.getElementById("x").innerHTML = "Timeleft - " + h + " : " + m;
+                m = m - 1;
+                if (m == -1) {
+                    h = h - 1;
+                    m = 59;
+                }
+                if (h == -1) {
+                    clearInterval(p);
+                    alert("time over");
+                    finish();
+                }
+            }, 1000);
+            document.getElementById("hiddenbox").style.visibility = "visible"
+            document.getElementById("stop").style.visibility = "visible"
+            document.getElementById("start").style.visibility = "hidden"
+            show(0);
+        }
+        function stoptest() {
+            var torf = confirm("are you sure you want to finish?");
+            if (torf == 1) {
+                finish()
+                document.getElementById("x").innerHTML = "Timeleft - " + h + " : " + m;
+                clearInterval(p);
+            }
+        }
+
+
+
+        var a = ["Which of the following is the correct syntax to add the header file in the C++ program?", "Which of the following is the correct identifier?", "Which of the following is the address operator?", " Which of the following features must be supported by any programming language to become a pure object-oriented programming language?", "For inserting a new line in C++ program, which one of the following statements can be used?", " C++ is a ___ type of language.", "Which one of the following represents the tab?", "If we stored five elements or data items in an array, what will be the index address or the index number of the array's last data item?", `What is the output of the given program? <br> #include < stdio.h >  <br>
+using namespace std;  <br>
+int main()  <br>
+{  
+int array[] = {10, 20, 30};  <br>
+cout << -2[array];  <br>
+return 0;  <br>
+}  `,"Which of the following statement is correct about Virtual Inheritance?"];
+        var op1 = ["#include&lt;userdefined&gt;", "$var_name", "@", "Encapsulation", "&#8726;n", "High-level Language", "&#8726;n", "3","-15","It is a technique to ensure that a private member of a base class can be accessed"];
+        var op2 = ["#include &quot;userdefined.h&quot; ", "VAR_123", "#", "Inheritance", "&#8726;r", "Low-level language", "&#8726;t", "5","-30","It is a technique to optimize the multiple inheritances"];
+        var op3 = ["&lt;include&gt; &quot;userdefined.h&quot;", "varname@", "&", "Polymorphism", "&#8726;a", "Middle-level language", "&#8726;r", "4","Compiler error","It is a technique to avoid the multiple inheritances of the classes"];
+        var op4 = ["Both A and B", "None of the above", "%", "All of the above", "None of the above", "None of the above", "None of the above", "88","Syntex error","It is a C++ technique to avoid multiple copies of the base class into the derived or child classes"];
+        var ans = [4, 2, 3, 4, 1, 3, 2, 3,2,4];
+        var x;
+        var i;
+        var j;
+        var s = 0;
+        function show(i) {
+            j = i;
+            document.getElementById("aa").innerHTML = "Question=> " + a[i];
+            document.getElementById("bb").innerHTML = "<input type='radio' value=1 id='a' name='a'>" + op1[i];
+            document.getElementById("cc").innerHTML = "<input type='radio' value=2 id='b' name='a'>" + op2[i];
+            document.getElementById("dd").innerHTML = "<input type='radio' value=3 id='c' name='a'>" + op3[i];
+            document.getElementById("ee").innerHTML = "<input type='radio' value=4 id='d' name='a'>" + op4[i];
+        }
+
+
+        function next() {
+            if (j < 9) {
+                show(j + 1);
+            }
+            else {
+                // show(0);
+                alert("question over")
+            }
+        }
+        function pre() {
+            if (j >= 1) {
+                show(j - 1);
+            }
+            else {
+                show(0);
+            }
+        }
+        var c = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        function answer() {
+            var a;
+            if (document.getElementById("a").checked) {
+                a = document.getElementById("a").value;
+
+            }
+            else if (document.getElementById("b").checked) {
+                a = document.getElementById("b").value
+            }
+            else if (document.getElementById("c").checked) {
+                a = document.getElementById("c").value
+            }
+            else if (document.getElementById("d").checked) {
+                a = document.getElementById("d").value
+            }
+
+
+
+            if (a == ans[j]) {
+
+                c[j] = 1;
+
+            }
+            else {
+                c[j] = 0
+
+
+            }
+            next();
+        }
+
+        function finish() {
+            for (var index = 0; index < c.length; index++) {
+                s = s + c[index];
+
+            }
+
+            document.getElementById("f").innerHTML = "Final score=" + s + "/10"
+            document.getElementById("x").innerHTML = "Timeleft - " + h + " : " + m;
+            clearInterval(p);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="a">
+        <div>
+            <a href="l.html"><img src="home.webp" width="50px" height="50px" style="position: absolute; left: 20px;top: 0px;"></a>
+        </div>
+        <div id="start">
+            <input type="button" value="start test" onclick="starttest()"
+                style="padding: 12px 20px; background-color: bisque; border: none; border-radius: 30px;font-size: 17px;">
+        </div>
+        <div id="stop" style="margin-left: -90px; visibility: hidden;">
+            <input type="button" value="stop test" onclick="stoptest()"
+                style="padding: 12px 20px; background-color: bisque; border: none; border-radius: 30px;font-size: 17px;">
+        </div>
+        <div style="margin-left: 100px; font-size: 20px;"> Exam duration 30 min</div>
+        <div style="margin-left: 100px;font-size: 20px;">
+            <div id="x"></div>
+        </div>
+    </div>
+
+    <div id="hiddenbox" style="visibility: hidden;">
+        <div>
+            <div style="display: flex;font-size: 20px;flex-direction: column; margin-top: 20px;">
+                <div id="aa" style="background-color: beige; font-size: 30px;"></div>
+                <div id="bb" style="background-color:transparent; display: inline; margin-top: 20px;"></div> <br>
+                <div id="cc" style="background-color:transparent; display: inline;"></div> <br>
+                <div id="dd" style="background-color:transparent; display: inline;"></div> <br>
+                <div id="ee" style="background-color:transparent; display: inline;"></div> <br>
+            </div>
+
+
+
+            <div style="display: flex; margin-top: 50px;">
+                <div>
+
+                    <input type="button" value="previous" id="pre" onclick="pre()" class="button">
+                </div>
+                <div style="width: 10px;height: 35px; display: flex;margin-left: 30px;margin-top: 18px;">
+                    <input type=button value="1" onclick="show(0)" class="mini" />
+                    <input type=button value="2" onclick="show(1)" class="mini" />
+                    <input type=button value="3" onclick="show(2)" class="mini" />
+                    <input type=button value="4" onclick="show(3)" class="mini" />
+                    <input type=button value="5" onclick="show(4)" class="mini" />
+                    <input type=button value="6" onclick="show(5)" class="mini" />
+                    <input type=button value="7" onclick="show(6)" class="mini" />
+                    <input type=button value="8" onclick="show(7)" class="mini" />
+                    <input type=button value="9" onclick="show(8)" class="mini" />
+                    <input type=button value="10" onclick="show(9)" class="mini" />
+                </div>
+                <div style="margin-left: 330px;">
+
+                    <input type="button" value="next" id="next" onclick="next()" class="button1">
+                </div>
+                <div>
+
+                    <input type="button" value="submit" id="next" onclick="answer()" class="button">
+                </div>
+                <div>
+
+                    <input type="button" value="finish" id="finish" onclick="finish()" class="button2">
+                </div>
+            </div>
+
+
+            <div>
+                <p id="f" class="final"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
